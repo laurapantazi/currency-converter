@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import CurrencyForm from './CurrencyForm';
+import {Container} from './Container.js';
+import { useTheme, useThemeUpdate } from './ThemeContext';
+import { lightTheme, darkTheme, GlobalStyles } from './theme';
+import { ThemeProvider } from 'styled-components';
+     
 function App() {
+  const isDarkTheme = useTheme();
+  const changeTheme = useThemeUpdate();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={isDarkTheme? darkTheme : lightTheme}>
+        <GlobalStyles />
+        <Container className="App">
+          <button style={{position: 'absolute',top: 20, right: 20}} onClick={changeTheme}>Toggle theme</button>
+          <CurrencyForm />
+        </Container>
+      </ThemeProvider>
+    </>
   );
 }
 
