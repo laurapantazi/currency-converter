@@ -1,19 +1,19 @@
-import CurrencyForm from './CurrencyForm';
-import {Container} from './Container.js';
-import { useTheme, useThemeUpdate } from './ThemeContext';
-import { lightTheme, darkTheme, GlobalStyles } from './theme';
+import CurrencyForm from './components/CurrencyForm/CurrencyForm';
+import {Container} from './Container';
+import { lightTheme, darkTheme, GlobalStyles } from './styles/theme';
 import { ThemeProvider } from 'styled-components';
+import { ThemeMode } from './ThemeMode';
+import { useThemeModeContext } from "./ThemeModeContext";
      
 function App() {
-  const isDarkTheme = useTheme();
-  const changeTheme = useThemeUpdate();
+  var contextData = useThemeModeContext();
 
   return (
     <>
-      <ThemeProvider theme={isDarkTheme? darkTheme : lightTheme}>
+    <ThemeProvider theme={contextData.darkTheme? darkTheme : lightTheme}>
         <GlobalStyles />
         <Container className="App">
-          <button style={{position: 'absolute',top: 20, right: 20}} onClick={changeTheme}>Toggle theme</button>
+          <ThemeMode />
           <CurrencyForm />
         </Container>
       </ThemeProvider>

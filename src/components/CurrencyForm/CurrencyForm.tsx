@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from "react";
-import currencies from './currencies.json';
-import {Form} from "./Form.js";
-import {FormElement, Input, Select, Label} from "./FormElements.js";
+import currencies from '../../currencies.json';
+import {Form} from "./Form";
+import {FormElement, Input, Select, Label} from "./FormElements";
 import { SubmitButton } from "./Buttons";
 
 const axios = require('axios').default;
