@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
-import { ThemeModeProvider } from './ThemeModeContext';
+import { ThemeModeProvider } from './context/theme/ThemeModeContext';
 
 ReactDOM.render(
   <React.StrictMode>

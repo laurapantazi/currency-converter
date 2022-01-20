@@ -1,9 +1,9 @@
-import CurrencyForm from './components/CurrencyForm/CurrencyForm';
-import {Container} from './Container';
-import { lightTheme, darkTheme, GlobalStyles } from './styles/theme';
+import CurrencyForm from '../CurrencyForm/CurrencyForm';
+import {Container} from '../../styles/Container';
+import { lightTheme, darkTheme, GlobalStyles } from '../../styles/theme';
 import { ThemeProvider } from 'styled-components';
-import { ThemeMode } from './ThemeMode';
-import { useThemeModeContext } from "./ThemeModeContext";
+import { ThemeMode } from '../../context/theme/ThemeMode';
+import { useThemeModeContext } from "../../context/theme/ThemeModeContext";
      
 function App() {
   var contextData = useThemeModeContext();
