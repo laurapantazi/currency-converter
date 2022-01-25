@@ -9,6 +9,21 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [x] React >= 16.8.0
 * [x] styled-components
 
+## Start client
+```
+# Install dependencies
+yarn install
+
+# Set environment variables
+cp .env.example .env
+
+# Serve with hot reload
+yarn start
+
+# Build for production (build web app scripts and styles)
+yarn build
+
+```
 ## Available Scripts
 
 In the project directory, you can run:

@@ -20,7 +20,7 @@ const CurrencyForm = () => {
     }, [convertedAmount, amount])
     const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
       event.preventDefault(); 
-      axios.get(`https://freecurrencyapi.net/api/v2/latest?apikey=${process.env.REACT_APP_CURRENCY_API_KEY}&base_currency=${fromCurrency}`)
+      axios.get(`${process.env.REACT_APP_CURRENCY_API}/latest?apikey=${process.env.REACT_APP_CURRENCY_API_KEY}&base_currency=${fromCurrency}`)
       .then((response: any) => {
         setConvertedAmount(response.data.data[toCurrency]);
       })
