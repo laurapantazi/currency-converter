@@ -12,9 +12,18 @@ export const CustomFormElement = styled.input`
   background: none;
   z-index: 1;
 `;
+
+interface InputProps {
+  readonly appearance?: string;
+};
+
 export const Input = styled(CustomFormElement).attrs({
   as: "input"
-})``;
+})<InputProps>`
+  webkit-appearance: ${props => props.appearance || "textfield"};
+  -moz-appearance: ${props => props.appearance || "textfield"};
+  appearance: ${props => props.appearance || "textfield"};
+`;
 export const Select = styled(CustomFormElement).attrs({
   as: "select"
 })`

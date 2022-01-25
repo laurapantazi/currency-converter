@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, useEffect } from "react";
+import { useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
 import currencies from '../../currencies.json';
 import {Form} from "./Form";
 import {FormElement, Input, Select, Label} from "./FormElements";
@@ -27,12 +27,19 @@ const CurrencyForm = () => {
       .catch((err: any) => console.log('error: ', err))
     }
 
+    const preventStrings = (event: KeyboardEvent<HTMLInputElement>) => { 
+      if ((event.key !== "Backspace") && (isNaN(parseInt(event.key)))) {
+        event.preventDefault();
+        return false
+      }
+      return;
+  }
   return (
     <>
       <Form onSubmit={handleSubmit}>
         <FormElement>
           <Label>Amount:</Label>
-          <Input type="number" min="0" step="0.01" value={amount} onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}/>
+          <Input appearance="textfield" type="number" min="0" step="0.01" value={amount || ''} onKeyDown={preventStrings} onChange={(e) => setAmount(parseFloat(e.target.value))}/>
         </FormElement>
         
         <FormElement>
