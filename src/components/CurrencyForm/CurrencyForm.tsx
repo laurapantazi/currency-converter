@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
 import currencies from '../../currencies.json';
 import {Form} from "./Form";
-import {FormElement, Input, Select, Label} from "./FormElements";
+import {FormElement, Input, Select, Label, ResultDiv} from "./FormElements";
 import { SubmitButton } from "./Buttons";
 
 const axios = require('axios').default;
@@ -38,12 +38,7 @@ const CurrencyForm = () => {
     <>
       <Form onSubmit={handleSubmit}>
         <FormElement>
-          <Label>Amount:</Label>
           <Input appearance="textfield" type="number" min="0" step="0.01" value={amount || ''} onKeyDown={preventStrings} onChange={(e) => setAmount(parseFloat(e.target.value))}/>
-        </FormElement>
-        
-        <FormElement>
-          <Label>From:</Label>
           <Select name="From" value={fromCurrency} onChange={e => setFromCurrency(e.target.value)}>
             {Object.keys(currencies).map((value, index) => (
               <option value={value} key={index}>
@@ -54,7 +49,9 @@ const CurrencyForm = () => {
         </FormElement>
 
         <FormElement>
-          <Label>To:</Label>
+          <ResultDiv>
+            {result.toFixed(2)}
+          </ResultDiv>
           <Select name="To" value={toCurrency} onChange={e => setToCurrency(e.target.value)}>
             {Object.keys(currencies).map((value, index) => (
               <option value={value} key={index}>
@@ -63,7 +60,6 @@ const CurrencyForm = () => {
             ))}
           </Select>
         </FormElement>
-
         
         <FormElement>
           <Label>Save as (Optional):</Label>
@@ -71,9 +67,6 @@ const CurrencyForm = () => {
         </FormElement>
 
         <SubmitButton type="submit">Convert</SubmitButton>
-        <div>
-          {amount} {fromCurrency} is equal to {result.toFixed(2)}  {toCurrency}
-        </div>
       </Form>
     </>
   );

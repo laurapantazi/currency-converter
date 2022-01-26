@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
 export const CustomFormElement = styled.input`
-  width: 320px;
-  height: 16px;
   font-size: 18px;
-  border: 1px solid ${({theme}) => theme.text};
+  border: none;
   color: ${({theme}) => theme.text};
-  border-radius: .5rem;
   outline: none;
   padding: 1rem;
   background: none;
@@ -23,28 +20,46 @@ export const Input = styled(CustomFormElement).attrs({
   webkit-appearance: ${props => props.appearance || "textfield"};
   -moz-appearance: ${props => props.appearance || "textfield"};
   appearance: ${props => props.appearance || "textfield"};
+  width: calc(100% - 100px);
 `;
 export const Select = styled(CustomFormElement).attrs({
   as: "select"
 })`
-  width: 100%;
+  width: 100px;
   outline: 0;
   box-shadow: none;
   flex: 1;
   padding: 0 1em;
   cursor: pointer;
-  height: 48px;
+  height: 100%;
 `;
 
 export const Label = styled.label`
   position: absolute;
-  top: -20px;
+  top: -24px;
   font-weight: 500;
   font-size: 16px;
 `;
 export const FormElement = styled.div`
+  display: flex;
   width: 100%;
   position: relative;
-  height: 48px;
-  margin-bottom: 1.8rem;
+  height: 60px;
+  margin-bottom: 2.8rem;
+  background: rgba(50, 69, 115, 0.3);
+  border-radius: 1rem;
+  padding: 0 12px;
+  box-sizing: border-box;
+`;
+
+export const ResultDiv = styled.div`
+  width: calc(100% - 100px);
+  font-size: 18px;
+  line-height: 26px;
+  border: none;
+  color: ${({theme}) => theme.text};
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1;
 `;
