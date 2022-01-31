@@ -1,6 +1,7 @@
 import CurrencyForm from '../CurrencyForm/CurrencyForm';
 import {Container} from '../../styles/Container.styled';
-import { lightTheme, darkTheme, GlobalStyles } from '../../styles/theme.styled';
+import { lightTheme, darkTheme } from '../../styles/theme';
+import { GlobalStyles } from '../../styles/GlobalStyles.styled';
 import { ThemeProvider } from 'styled-components';
 import { ThemeMode } from '../../context/theme/ThemeMode';
 import { useThemeModeContext } from "../../context/theme/ThemeModeContext";
