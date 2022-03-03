@@ -3,8 +3,7 @@ import currencies from '../../currencies.json';
 import {Form} from "./Form.styled";
 import {FormElement, Input, Select, Label, ResultDiv} from "./FormElements.styled";
 import { SubmitButton } from "./Buttons.styled";
-
-const axios = require('axios').default;
+import { getCurrency } from "../../api/currency";
 
 const CurrencyForm = () => {
     const [amount, setAmount] = useState<number>(0);
@@ -18,13 +17,10 @@ const CurrencyForm = () => {
       const x = amount * convertedAmount;
       setResult(x);
     }, [convertedAmount, amount])
-    const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
-      event.preventDefault(); 
-      axios.get(`${process.env.REACT_APP_CURRENCY_API}/latest?apikey=${process.env.REACT_APP_CURRENCY_API_KEY}&base_currency=${fromCurrency}`)
-      .then((response: any) => {
-        setConvertedAmount(response.data.data[toCurrency]);
-      })
-      .catch((err: any) => console.log('error: ', err))
+    const handleSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const response = await getCurrency(fromCurrency, toCurrency);
+      setConvertedAmount(response);
     }
 
     const preventStrings = (event: KeyboardEvent<HTMLInputElement>) => { 
