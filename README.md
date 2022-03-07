@@ -41,3 +41,9 @@ In the project directory, you can run:
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Project screenshots
+
+![Dark mode](/screenshots/CurrencyConverterDark.png?raw=true "Dark Mode")
+
+![Light mode](/screenshots/CurrencyConverterLight.png?raw=true "Light Mode")
