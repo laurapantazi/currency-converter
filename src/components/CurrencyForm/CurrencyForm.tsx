@@ -34,8 +34,8 @@ const CurrencyForm = () => {
     <>
       <Form onSubmit={handleSubmit}>
         <FormElement>
-          <Input appearance="textfield" type="number" min="0" step="0.01" value={amount || ''} onKeyDown={preventStrings} onChange={(e) => setAmount(parseFloat(e.target.value))}/>
-          <Select name="From" value={fromCurrency} onChange={e => setFromCurrency(e.target.value)}>
+          <Input appearance="textfield" data-testid="amount" type="number" min="0" step="0.01" value={amount || ''} onKeyDown={preventStrings} onChange={(e) => setAmount(parseFloat(e.target.value))}/>
+          <Select name="From" data-testid="from-currency" value={fromCurrency} onChange={e => setFromCurrency(e.target.value)}>
             {Object.keys(currencies).map((value, index) => (
               <option value={value} key={index}>
                 {value}
@@ -48,7 +48,7 @@ const CurrencyForm = () => {
           <ResultDiv>
             {result.toFixed(2)}
           </ResultDiv>
-          <Select name="To" value={toCurrency} onChange={e => setToCurrency(e.target.value)}>
+          <Select name="To" data-testid="to-currency" value={toCurrency} onChange={e => setToCurrency(e.target.value)}>
             {Object.keys(currencies).map((value, index) => (
               <option value={value} key={index}>
                 {value}
@@ -62,7 +62,7 @@ const CurrencyForm = () => {
           <Input type="text" value={conversionName} onChange={e => setConversionName(e.target.value)}></Input>
         </FormElement>
 
-        <SubmitButton type="submit">Convert</SubmitButton>
+        <SubmitButton data-testid="submit" type="submit">Convert</SubmitButton>
       </Form>
     </>
   );
