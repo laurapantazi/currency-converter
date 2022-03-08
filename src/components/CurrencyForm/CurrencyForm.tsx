@@ -45,7 +45,7 @@ const CurrencyForm = () => {
         </FormElement>
 
         <FormElement>
-          <ResultDiv>
+          <ResultDiv data-testid="converted-amount">
             {result.toFixed(2)}
           </ResultDiv>
           <Select name="To" data-testid="to-currency" value={toCurrency} onChange={e => setToCurrency(e.target.value)}>
@@ -58,8 +58,8 @@ const CurrencyForm = () => {
         </FormElement>
         
         <FormElement>
-          <Label>Save as (Optional):</Label>
-          <Input type="text" value={conversionName} onChange={e => setConversionName(e.target.value)}></Input>
+          <Label>Save as (Optional)</Label>
+          <Input type="text" data-testid="save-value" value={conversionName} onChange={e => setConversionName(e.target.value)}></Input>
         </FormElement>
 
         <SubmitButton data-testid="submit" type="submit">Convert</SubmitButton>

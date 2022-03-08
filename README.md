@@ -1,4 +1,4 @@
-# Currency Converter (Under Construction)
+# Currency Converter (In progress)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Features
@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Built with
 * [x] React >= 16.8.0
 * [x] styled-components
+* [x] Jest, React Testing Library
 
 ## Start client
 ```
